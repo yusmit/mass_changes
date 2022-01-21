@@ -1,0 +1,13 @@
+---
+- name: regexp change
+  include:  regexp_change.yaml
+  loop: "{{ list_path_to_cfg_rgx|flatten(level=1) }}"
+  loop_control:
+    loop_var: path_to_cfg_rgx
+  when: list_path_to_cfg_rgx is defined
+- name: line change
+  include:  line_change.yaml
+  loop: "{{ list_path_to_cfg|flatten(level=1) }}"
+  loop_control:
+    loop_var: path_to_cfg
+  when: list_path_to_cfg is defined

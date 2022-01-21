@@ -1,0 +1,7 @@
+---
+- name: Regxp change
+  replace:
+    path: "{{ path_to_cfg_rgx }}"
+    regexp: "{{ item.key }}"
+    replace: "{{ item.value }}"
+  loop: "{{ dict_to_changes_rgx|dict2items }}"
